@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['auth'] = $usuario;
 
         flash()->push('mensagem', 'Seja bem Vindo ' . $usuario->nome . '!');
-        header('location: /');
+        header('location: /dashboard');
         exit();
     } else {
         flash()->push('validacoes', ['email' => ['Usuário ou senha não incorretos!']]);
