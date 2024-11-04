@@ -9,8 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'senha' => ['required']
     ], $_POST);
 
-    if ($validacao->naoPassou('login')) {
-        header('location: /login');
+    if ($validacao->naoPassou()) {
+        view('login');
         exit();
     }
 
@@ -20,18 +20,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         params: compact('email')
     )->fetch();
 
-    if ($usuario) {
-        // Validar senha
-        if (!password_verify($senha, $usuario->senha)) {
-            flash()->push('validacoes_login', ['Usuário ou senha não incorretos!']);
-            header('location: /login');
-            exit();
-        }
-
+    if ($usuario && password_verify($senha, $usuario->senha)) {
         $_SESSION['auth'] = $usuario;
+
         flash()->push('mensagem', 'Seja bem Vindo ' . $usuario->nome . '!');
         header('location: /');
         exit();
+    } else {
+        flash()->push('validacoes', ['email' => ['Usuário ou senha não incorretos!']]);
     }
 }
 
