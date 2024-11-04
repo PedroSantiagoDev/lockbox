@@ -1,1 +1,1 @@
-ok
+Estou logado <?= auth()->nome; ?>
