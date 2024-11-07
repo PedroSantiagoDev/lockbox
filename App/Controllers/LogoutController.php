@@ -2,4 +2,10 @@
 
 namespace App\Controllers;
 
-class LogoutController {}
+class LogoutController
+{
+    public function __invoke(): void
+    {
+        echo "logout index";
+    }
+}

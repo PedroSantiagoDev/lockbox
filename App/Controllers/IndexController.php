@@ -4,8 +4,8 @@ namespace App\Controllers;
 
 class IndexController
 {
-    public function __invoke(): void
+    public function __invoke()
     {
-        echo "index index";
+        return view('index');
     }
 }

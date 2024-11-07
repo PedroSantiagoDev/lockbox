@@ -6,9 +6,9 @@ class LoginController
 {
     public function index()
     {
-        echo "login index";
+        return view('login');
     }
-    
+
     public function login()
     {
         echo "login login";
