@@ -4,8 +4,9 @@ namespace App\Controllers;
 
 class LogoutController
 {
-    public function __invoke(): void
+    public function __invoke()
     {
-        echo "logout index";
+        session_destroy();
+        return redirect('/login');
     }
 }
