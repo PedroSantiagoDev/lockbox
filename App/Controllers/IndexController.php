@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class IndexController
 {
-    public function index()
+    public function __invoke(): void
     {
         echo "index index";
     }
