@@ -6,6 +6,10 @@ class DashboardController
 {
     public function __invoke()
     {
-        return view('dashboard');
+        if (!auth()) {
+            return redirect('/login');
+        }
+
+        echo 'estou logado ' . auth()->nome;
     }
 }
