@@ -10,6 +10,8 @@ class DashboardController
             return redirect('/login');
         }
 
-        echo 'estou logado ' . auth()->nome;
+        return view('dashboard', [
+            'user' => auth()
+        ]);
     }
 }

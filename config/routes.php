@@ -5,6 +5,7 @@ use App\Controllers\IndexController;
 use App\Controllers\LoginController;
 use App\Controllers\DashboardController;
 use App\Controllers\LogoutController;
+use App\Controllers\Notas\CriarController;
 use App\Controllers\RegisterController;
 
 (new Route())
@@ -12,6 +13,7 @@ use App\Controllers\RegisterController;
     ->get('/login', [LoginController::class, 'index'])
     ->post('/login', [LoginController::class, 'login'])
     ->get('/dashboard', DashboardController::class)
+    ->get('/notas/criar', CriarController::class)
     ->get('/logout', LogoutController::class)
     ->get('/registrar', [RegisterController::class, 'index'])
     ->post('/registrar', [RegisterController::class, 'register'])
