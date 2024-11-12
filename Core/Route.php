@@ -41,7 +41,7 @@ class Route
 
     public function run()
     {
-        $uri = '/' . str_replace('/', '', parse_url($_SERVER['REQUEST_URI'])['path']);
+        $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
         $http = $_SERVER['REQUEST_METHOD'];
 
         if (! isset($this->routes[$http][$uri])) {
