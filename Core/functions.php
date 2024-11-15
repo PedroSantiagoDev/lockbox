@@ -75,3 +75,8 @@ function redirect($uri)
 {
     return header("location: $uri");
 }
+
+function request()
+{
+    return new Core\Request();
+}

@@ -22,7 +22,7 @@
                 <div class="label">
                     <span class="label-text">Sua nota</span>
                 </div>
-                <textarea name="nota" class="textarea textarea-bordered h-24" placeholder="Sua nota..."></textarea>
+                <textarea name="nota" class="textarea textarea-bordered h-24"></textarea>
                 <?php if (isset($validacoes['nota'])): ?>
                     <div class="label text-xs text-error"><?= $validacoes['nota'][0] ?></div>
                 <?php endif; ?>

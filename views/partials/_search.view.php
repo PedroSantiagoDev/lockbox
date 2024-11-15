@@ -2,7 +2,7 @@
     <form action="/notas" class="w-full">
         <label class="input input-bordered flex items-center gap-2 w-full">
             <input
-                    value="<?= isset($_GET['pesquisar']) ? $_GET['pesquisar'] : '' ?>"
+                    value="<?= request()->get('pesquisar', '') ?>"
                 type="text"
                 name="pesquisar"
                 class="grow"
