@@ -2,10 +2,12 @@
     <form action="/notas" class="w-full">
         <label class="input input-bordered flex items-center gap-2 w-full">
             <input
+                    value="<?= isset($_GET['pesquisar']) ? $_GET['pesquisar'] : '' ?>"
                 type="text"
                 name="pesquisar"
                 class="grow"
-                placeholder="Pesquisar notas no lockbox..." />
+                    placeholder="Pesquisar notas no lockbox..."
+            />
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
