@@ -59,7 +59,7 @@
                                 <span class="label-text text-black">Senha</span>
                             </div>
                             <input
-                                type="text" name="senha"
+                                type="password" name="senha"
                                 class="input input-bordered w-full max-u-xs bg-white" />
                             <?php if (isset($validacoes['senha'])): ?>
                                 <div class="label text-xs text-error"><?= $validacoes['senha'][0] ?></div>
