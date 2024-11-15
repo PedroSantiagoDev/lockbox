@@ -18,6 +18,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="card-title">Faça o seu login</div>
+                        <?php require base_path('views/partials/_mensagem.view.php'); ?>
                         <label class="form-control">
                             <div class="label">
                                 <span class="label-text text-black">Email</span>
