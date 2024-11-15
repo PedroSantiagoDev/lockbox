@@ -1,8 +1,8 @@
 <?php $validacoes = flash()->get('validacoes'); ?>
 
 <div class="flex flex-grow py-6">
-    <ul class="menu bg-base-300 rounded-l-box w-56">
-        <div class="bg-base-200 p-4">
+    <ul class="bg-base-300 rounded-l-box w-56">
+        <div class="bg-base-200 p-4 rounded-tl-box">
             + Nova nota
         </div>
     </ul>
