@@ -39,10 +39,13 @@
                     <span class="label-text">Sua nota</span>
                 </div>
                 <textarea
+                        <?php if (!session()->get('mostrar')): ?>
+                            disabled
+                        <?php endif ?>
                         name="nota"
                         class="textarea textarea-bordered h-24"
                 >
-                        <?= $notaSelecionada->nota ?>
+                        <?= $notaSelecionada->nota() ?>
                 </textarea>
                 <?php if (isset($validacoes['nota'])): ?>
                     <div class="label text-xs text-error"><?= $validacoes['nota'][0] ?></div>
@@ -57,7 +60,12 @@
 
                 <button class="btn btn-error">Deletar</button>
             </form>
-            <button class="btn btn-primary" form="form-update">Atualizar</button>
+            <button
+                class="btn btn-primary"
+                form="form-update"
+            >
+                Atualizar
+            </button>
         </div>
     </div>
 </div>

@@ -13,6 +13,15 @@ class Nota
     public $data_criacao;
     public $data_atualizacao;
 
+    public function nota()
+    {
+        if (session()->get('mostrar')) {
+            return $this->nota;
+        }
+
+        return str_repeat('*', strlen($this->nota));
+    }
+
     public static function all($filter)
     {
         $database = new Database(config('database'));
@@ -30,13 +39,18 @@ class Nota
     {
         $database = new Database(config('database'));
 
+        $set = "titulo = :titulo";
+
+        if ($nota) {
+            $set .= ", nota = :nota";
+        }
+
         $database->query(
-            query: 'update notas set titulo = :titulo, nota = :nota where id = :id',
-            params: [
+            query: "update notas set $set where id = :id",
+            params: array_merge([
                 ':titulo' => $titulo,
-                ':nota' => $nota,
                 ':id' => $id
-            ]
+            ], $nota ? [':nota' => $nota] : [])
         );
     }
 
