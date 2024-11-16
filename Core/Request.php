@@ -22,4 +22,9 @@ class Request
     {
         return $_POST;
     }
+
+    public function only(array $keys)
+    {
+        // criar depois
+    }
 }

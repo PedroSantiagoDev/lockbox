@@ -5,6 +5,7 @@ use App\Controllers\LoginController;
 use App\Controllers\LogoutController;
 use App\Controllers\Notas\AtualizarController;
 use App\Controllers\Notas\CriarController;
+use App\Controllers\Notas\DeletarController;
 use App\Controllers\Notas\IndexController as IndexNotasController;
 use App\Controllers\RegisterController;
 use App\Middleware\AuthMiddleware;
@@ -26,4 +27,5 @@ use Core\Route;
     ->get('/notas/criar', [CriarController::class, 'index'], AuthMiddleware::class)
     ->post('/notas/criar', [CriarController::class, 'store'], AuthMiddleware::class)
     ->put('/nota', AtualizarController::class, AuthMiddleware::class)
+    ->delete('/nota', DeletarController::class, AuthMiddleware::class)
     ->run();
