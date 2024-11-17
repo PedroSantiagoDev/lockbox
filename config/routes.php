@@ -13,7 +13,7 @@ use App\Middleware\AuthMiddleware;
 use App\Middleware\GuestMiddleware;
 use Core\Route;
 
-(new Route())
+(new Route)
     ->get('/', IndexController::class, GuestMiddleware::class)
 
     ->get('/login', [LoginController::class, 'index'], GuestMiddleware::class)

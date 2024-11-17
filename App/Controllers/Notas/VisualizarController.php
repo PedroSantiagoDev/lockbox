@@ -10,22 +10,22 @@ class VisualizarController
     {
         return view('notas/confirmar');
     }
+
     public function mostrar()
     {
         $validacao = Validacao::validar([
-            'senha' => ['required']
+            'senha' => ['required'],
         ], request()->all());
 
         if ($validacao->naoPassou()) {
             return view('notas/confirmar');
         }
 
-        if (!(password_verify(request()->post('senha'), auth()->senha))) {
+        if (! (password_verify(request()->post('senha'), auth()->senha))) {
             flash()->push('validacoes', ['senha' => ['Senha incorreta!']]);
 
             return view('notas/confirmar');
         }
-
 
         session()->set('mostrar', true);
 

@@ -12,7 +12,7 @@ class Route
             $data = [
                 'class' => $controller,
                 'method' => '__invoke',
-                'middleware' =>  $middleware
+                'middleware' => $middleware,
             ];
         }
 
@@ -20,7 +20,7 @@ class Route
             $data = [
                 'class' => $controller[0],
                 'method' => $controller[1],
-                'middleware' => $middleware
+                'middleware' => $middleware,
             ];
         }
 

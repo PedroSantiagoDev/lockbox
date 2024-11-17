@@ -10,9 +10,9 @@
             <input
                     type="password" name="senha"
                     class="input input-bordered bg-white"/>
-            <?php if (isset($validacoes['senha'])): ?>
+            <?php if (isset($validacoes['senha'])) { ?>
                 <div class="label text-xs text-error"><?= $validacoes['senha'][0] ?></div>
-            <?php endif; ?>
+            <?php } ?>
         </label>
         <button class="btn btn-primary">Abrir minhas notas</button>
     </form>

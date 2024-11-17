@@ -3,7 +3,7 @@
 return [
     'database' => [
         'driver' => 'sqlite',
-        'database' => base_path('database/database.sqlite')
+        'database' => base_path('database/database.sqlite'),
 
         //config db mysql
         /*
@@ -17,6 +17,6 @@ return [
     ],
     'security' => [
         'first_key' => env('FIRST_KEY'),
-        'second_key' => env('SECOND_KEY')
-    ]
+        'second_key' => env('SECOND_KEY'),
+    ],
 ];

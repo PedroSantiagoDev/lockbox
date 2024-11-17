@@ -2,16 +2,32 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Core\Database;
 
 class Nota
 {
     public $id;
+
     public $usuario_id;
+
     public $titulo;
+
     public $nota;
+
     public $data_criacao;
+
     public $data_atualizacao;
+
+    public function dataCriacao()
+    {
+        return Carbon::parse($this->data_criacao);
+    }
+
+    public function dataAtualizacao() 
+    {
+        return Carbon::parse($this->data_atualizacao);
+    }
 
     public function nota()
     {
@@ -33,7 +49,7 @@ class Nota
             ',
             params: array_merge($data, [
                 ':data_criacao' => date('Y-m-d H:i:s'),
-                ':data_atualizacao' => date('Y-m-d H:i:s')
+                ':data_atualizacao' => date('Y-m-d H:i:s'),
             ])
         );
     }
@@ -43,8 +59,8 @@ class Nota
         $database = new Database(config('database'));
 
         return $database->query(
-            query: "select * from notas where usuario_id = :usuario_id " . (
-                 $filter ? "and titulo like :filter" : null
+            query: 'select * from notas where usuario_id = :usuario_id '.(
+                $filter ? 'and titulo like :filter' : null
             ),
             class: self::class,
             params: array_merge([':usuario_id' => auth()->id], $filter ? [':filter' => "%$filter%"] : [])
@@ -55,30 +71,29 @@ class Nota
     {
         $database = new Database(config('database'));
 
-        $set = "titulo = :titulo";
+        $set = 'titulo = :titulo';
 
         if ($nota) {
-            $set .= ", nota = :nota";
+            $set .= ', nota = :nota';
         }
 
         $database->query(
             query: "update notas set $set where id = :id",
             params: array_merge([
                 ':titulo' => $titulo,
-                ':id' => $id
+                ':id' => $id,
             ], $nota ? [':nota' => secured_encrypt($nota)] : [])
         );
     }
 
-    public
-    static function delete($id)
+    public static function delete($id)
     {
         $database = new Database(config('database'));
 
         $database->query(
             query: 'delete from notas where id = :id',
             params: [
-                ':id' => $id
+                ':id' => $id,
             ]
         );
     }

@@ -18,10 +18,10 @@ class Database
         $drive = $config['driver'];
         unset($config['driver']);
 
-        $dsn = $drive . ':' . http_build_query($config, '', ';');
+        $dsn = $drive.':'.http_build_query($config, '', ';');
 
         if ($drive == 'sqlite') {
-            $dsn = $drive . ':' . $config['database'];
+            $dsn = $drive.':'.$config['database'];
         }
 
         return $dsn;
@@ -36,6 +36,7 @@ class Database
         }
 
         $prepare->execute($params);
+
         return $prepare;
     }
 }

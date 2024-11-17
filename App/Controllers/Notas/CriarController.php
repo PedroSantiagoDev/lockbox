@@ -26,7 +26,7 @@ class CriarController
         Nota::create([
             ':usuario_id' => auth()->id,
             ':titulo' => request()->post('titulo'),
-            ':nota' => secured_encrypt(request()->post('nota'))
+            ':nota' => secured_encrypt(request()->post('nota')),
         ]);
 
         flash()->push('mensagem', 'Nota criada com sucesso!');

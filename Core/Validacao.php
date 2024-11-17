@@ -15,7 +15,7 @@ class Validacao
 
                 if ($regra == 'confirmed') {
                     $validacao->$regra($campo, $valorDoCampo, $dados["{$campo}_confirmacao"]);
-                } else if (str_contains($regra, ':')) {
+                } elseif (str_contains($regra, ':')) {
                     $temp = explode(':', $regra);
                     $regra = $temp[0];
                     $regraAr = $temp[1];
@@ -56,7 +56,7 @@ class Validacao
 
     private function email($campo, $valor)
     {
-        if (!filter_var($valor, FILTER_VALIDATE_EMAIL)) {
+        if (! filter_var($valor, FILTER_VALIDATE_EMAIL)) {
             $this->addError($campo, "O $campo é inválido!");
         }
     }
@@ -84,7 +84,7 @@ class Validacao
 
     private function strong($campo, $valor)
     {
-        if (!strpbrk($valor, '!@#$%¨&*()_-+={}~^:;/?|')) {
+        if (! strpbrk($valor, '!@#$%¨&*()_-+={}~^:;/?|')) {
             $this->addError($campo, "O $campo precisar ter caracteres especiais!");
         }
     }
@@ -98,9 +98,10 @@ class Validacao
     {
         $chave = 'validacoes';
         if ($nomeCustomizado) {
-            $chave .= '_' . $nomeCustomizado;
+            $chave .= '_'.$nomeCustomizado;
         }
         flash()->push($chave, $this->validacoes);
-        return sizeof($this->validacoes) > 0;
+
+        return count($this->validacoes) > 0;
     }
 }
