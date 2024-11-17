@@ -92,6 +92,12 @@ function session()
     return new Core\Session();
 }
 
+function env($key, $default = null)
+{
+    $env = parse_ini_file(base_path('.env'), true);
+    return $env[$key] ?? $default;
+}
+
 function secured_encrypt($data)
 {
     $first_key = base64_decode(config('security.first_key'));
@@ -129,4 +135,3 @@ function secured_decrypt($input)
 
     return false;
 }
-
