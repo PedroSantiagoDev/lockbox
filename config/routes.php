@@ -30,7 +30,8 @@ use Core\Route;
     ->put('/nota', AtualizarController::class, AuthMiddleware::class)
     ->delete('/nota', DeletarController::class, AuthMiddleware::class)
 
-    ->get('/mostrar', [VisualizarController::class, 'mostrar'], AuthMiddleware::class)
+    ->get('/confirmar', [VisualizarController::class, 'confirmar'], AuthMiddleware::class)
+    ->post('/mostrar', [VisualizarController::class, 'mostrar'], AuthMiddleware::class)
     ->get('/esconder', [VisualizarController::class, 'esconder'], AuthMiddleware::class)
 
     ->run();

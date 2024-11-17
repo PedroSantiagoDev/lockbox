@@ -8,11 +8,6 @@ class IndexController
 {
     public function __invoke()
     {
-
-        dd(
-            secured_encrypt('Pedro')
-        );
-
         $notas = Nota::all(request()->get('pesquisar', null));
 
         if (!$notaSelecionada = $this->getNotaSelecionada($notas)) {
